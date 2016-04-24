@@ -106,6 +106,7 @@ int is_identical(struct node_dll *head, struct node *root){
 		{
 			return 0;
 		}
-		return -1;
 	}
+		return -1;
+	
 }
