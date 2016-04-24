@@ -96,15 +96,16 @@ void c(struct node *root,int* e)
 int is_identical(struct node_dll *head, struct node *root){
 	if (head != NULL && root != NULL)
 	{
-		int a;
+		int a = 0;
 		int* e = (int*)malloc(sizeof(int));
 		*e = 0;
 		struct node_dll *temp = head;
 		a = d(temp);
-		c(root,e);
-		if (a != (*e));
+		c(root, e);
+		if (a != (*e))
 		{
-			return  0;
+			return 0;
 		}
-	return -1;
+		return -1;
+	}
 }

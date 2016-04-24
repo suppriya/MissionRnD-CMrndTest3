@@ -37,8 +37,15 @@ struct node{
 };
 
 void insert12(struct node* root, struct node* val){
-	if (root->data == val->data){
-
+	
+	
+	if (root->data >val->data){
+		if (root->left == NULL){
+			root->left = val;
+		}
+		else{
+			insert12(root->left, val);
+		}
 	}
 	else if (root->data < val->data){
 		if (root->right == NULL){
@@ -48,23 +55,19 @@ void insert12(struct node* root, struct node* val){
 			insert12(root->right, val);
 		}
 	}
-	else if (root->data >val->data){
-		if (root->left == NULL){
-			root->left = val;
-		}
-		else{
-			insert12(root->left, val);
-		}
+	else if (root->data == val->data){
+
 	}
 }
 
-void inorder(struct node* root, struct node* res){
-	if (root != NULL){
-		inorder(root->left, res);
-		inorder(root->right, res);
+void inorder(struct node* root, struct node* ans){
+	if (root != NULL)
+	{
+		inorder(root->left, ans);
+		inorder(root->right, ans);
 		root->left = NULL;
 		root->right = NULL;
-		insert12(res, root);
+		insert12(ans, root);
 	}
 
 }
