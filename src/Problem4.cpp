@@ -76,7 +76,7 @@ void merge_two_bst(struct node *root1, struct node *root2){
 	}
 	else if (root1 != NULL && root2 != NULL)
 	{
-		inorder(root2, root1);
+		inorder(root2, root1); 
 	}
 	else if (root1 != NULL && root2 == NULL){
 

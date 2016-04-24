@@ -103,7 +103,8 @@ int is_identical(struct node_dll *head, struct node *root){
 		a = d(temp);
 		c(root,e);
 		if (a != (*e));
-		return 0;
-	  }
+		{
+			return  0;
+		}
 	return -1;
 }
