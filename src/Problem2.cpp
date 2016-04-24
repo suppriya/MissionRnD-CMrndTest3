@@ -70,7 +70,40 @@ struct node{
 	struct node *left;
 	struct node *right;
 };
+int d(struct node_dll *temp)
+{
+	if (temp != NULL)
+	{
+		int s = 0;
+		for (temp; temp != NULL; temp = temp->next)
+		{
+			s++;
+		}
+		return s;
+	}
+	return 0;
+}
+void c(struct node *root,int* e)
+{
+	if (root != NULL)
+	{
+		c(root->left, e);
+			(*e)++;
+		c(root->right,e);
+    }
+}
 
 int is_identical(struct node_dll *head, struct node *root){
+	if (head != NULL && root != NULL)
+	{
+		int a;
+		int* e = (int*)malloc(sizeof(int));
+		*e = 0;
+		struct node_dll *temp = head;
+		a = d(temp);
+		c(root,e);
+		if (a != (*e));
+		return 0;
+	  }
 	return -1;
 }

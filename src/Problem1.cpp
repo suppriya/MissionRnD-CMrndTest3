@@ -50,7 +50,42 @@ struct node{
 	struct node *right;
 };
 
+int sum(int n){
+	int s = 0,i;
+	for (i = 0; i <= n; i++)
+	{
+		s += i;
+	}
+	return s;
+}
+
+void sum1(struct node *root,int* summ)
+{
+	if (root == NULL)
+	{
+		return;
+	}
+	sum1(root->left, summ);
+	*summ += root->data;
+    sum1(root->right, summ);
+	
+}
+
 
 int get_missing_value(struct node *root,int n){
+	if (root == NULL)
+	{
+		return -1;
+	}
+	if (root != NULL)
+	{
+		int a, b, c;
+		int* summ = (int*)malloc(sizeof(int));
+		*summ = 0;
+		a = sum(n);
+		sum1(root,summ);
+		c = a - *summ;
+		return c;
+	}
     return -1;
 }

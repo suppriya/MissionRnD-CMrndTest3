@@ -36,6 +36,50 @@ struct node{
 	struct node *right;
 };
 
+void insert12(struct node* root, struct node* val){
+	if (root->data == val->data){
+
+	}
+	else if (root->data < val->data){
+		if (root->right == NULL){
+			root->right = val;
+		}
+		else{
+			insert12(root->right, val);
+		}
+	}
+	else if (root->data >val->data){
+		if (root->left == NULL){
+			root->left = val;
+		}
+		else{
+			insert12(root->left, val);
+		}
+	}
+}
+
+void inorder(struct node* root, struct node* res){
+	if (root != NULL){
+		inorder(root->left, res);
+		inorder(root->right, res);
+		root->left = NULL;
+		root->right = NULL;
+		insert12(res, root);
+	}
+
+}
+
 void merge_two_bst(struct node *root1, struct node *root2){
+	if (root1 == NULL && root2 != NULL)
+	{
+		root1 = root2;
+	}
+	else if (root1 != NULL && root2 != NULL)
+	{
+		inorder(root2, root1);
+	}
+	else if (root1 != NULL && root2 == NULL){
+
+	}
 	
 }
